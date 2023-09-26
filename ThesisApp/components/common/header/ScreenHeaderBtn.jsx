@@ -1,7 +1,7 @@
 import React from 'react'
-import { TouchableOpacity, Image } from 'react-native'
+import { TouchableOpacity, Image, Text } from 'react-native'
 
-import styles from './screenheader.style'
+import styles from '../../../assets/styles'
 
 //                         These are props passed on from the declaration of the component; index.js
 const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
