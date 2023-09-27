@@ -21,26 +21,31 @@ const styles = StyleSheet.create({
         borderRadius: SIZES.small / 1.25,
     },
     tabsBtn: {
-        width: "100%",
+        width: "99%",
         margin: 5,
         borderRadius: SIZES.small / 1.25,
-        backgroundColor: COLORS.grey
+        backgroundColor: COLORS.grey,
+        flexDirection: "row"
+    },
+    tabsBtnView: {
+        margin: 10,
     },
     headerText: {
         fontFamily: FONT.bold,
         fontSize: SIZES.xlarge,
         color: COLORS.white,
-        margin: 10
+        marginLeft: 10
     },
     bodyText: {
+        fontSize: SIZES.small,
         color: COLORS.white,
-        margin: 10
+        marginLeft: 10
     },
     bodyTextBold: {
         fontFamily: FONT.bold,
         fontSize: SIZES.large,
         color: COLORS.white,
-        margin: 10
+        marginLeft: 10
     }
 })
 

@@ -6,26 +6,18 @@ import { COLORS, SIZES } from '../assets/theme';
 import styles from '../assets/styles';
 
 import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from '../components';
-import HamburgerMenuBtn from '../components/common/header/HamburgerMenuBtn';
-import HamburgerMenuComp from '../components/common/menu/HamburgerMenuComp';
+import HamburgerMenuBtn from '../components/common/HamburgerMenuBtn';
+import HamburgerMenuComp from '../components/common/HamburgerMenuComp';
+import { FlatList } from 'react-native-gesture-handler';
+import common from '../components/common';
 
 
 const  Home = () => {
     const router = useRouter();
+    const navMenuItems = common.navMenuItems;
 
     return (    // SafeAreaView : Show content safely without notches, homebutton appearing
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.darkgrey }}>  
-            {/* <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: COLORS.lightWhite },
-                    headerShadowVisible: true,
-                    
-                    headerRight: () => (
-                        <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
-                    ),
-                    headerTitle: "TST"
-                }}
-            /> */}
             <Stack.Screen
                 options={{
                     headerStyle: { backgroundColor: COLORS.darkgrey },
@@ -47,7 +39,16 @@ const  Home = () => {
                         
                         />
                         <Nearbyjobs/>
-                        <HamburgerMenuComp/>
+                        <View>
+                            <FlatList
+                                data={navMenuItems}
+                                renderItem={({ item }) => (
+                                    <HamburgerMenuComp
+                                        item={item}
+                                    />
+                                )}
+                            />
+                        </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
