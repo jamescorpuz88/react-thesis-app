@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import { Text, View, ScrollView, SafeAreaView } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { Stack, useRouter } from 'expo-router';
 
 import { COLORS, SIZES } from '../assets/theme';
+import common from '../components/common';
 import styles from '../assets/styles';
 
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from '../components';
-import HamburgerMenuBtn from '../components/common/HamburgerMenuBtn';
-import HamburgerMenuComp from '../components/common/HamburgerMenuComp';
-import { FlatList } from 'react-native-gesture-handler';
-import common from '../components/common';
+// TEST DEVICE
+import testDevices from '../components/testDevices';
 
+import { DeviceComponent, HamburgerMenuBtn, HamburgerMenuComp } from '../components';
 
-const  Home = () => {
+const Home = () => {
     const router = useRouter();
     const navMenuItems = common.navMenuItems;
+    const testDevice = testDevices.devices;
+
+    console.log(navMenuItems)
+    console.log(testDevice)
 
     return (    // SafeAreaView : Show content safely without notches, homebutton appearing
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.darkgrey }}>  
@@ -28,27 +32,35 @@ const  Home = () => {
                     headerTitle: "Thesis Application"
                 }}
             />
-
             <ScrollView showsVerticalScrollIndicator = {false}>
                 <View
                     style={{
                         flex: 1,
                         padding: SIZES.medium
                     }}>
-                        <Welcome
-                        
+                    <View>
+                        <FlatList
+                            data={navMenuItems}
+                            renderItem={({ item }) => (
+                                <HamburgerMenuComp
+                                    item={item}
+                                />
+                            )}
                         />
-                        <Nearbyjobs/>
-                        <View>
-                            <FlatList
-                                data={navMenuItems}
-                                renderItem={({ item }) => (
-                                    <HamburgerMenuComp
-                                        item={item}
-                                    />
-                                )}
-                            />
-                        </View>
+                    </View>
+                    <View>
+                        <Text>
+                            My Devices
+                        </Text>
+                        <FlatList
+                            data={testDevice}
+                            renderItem={({ item }) => (
+                                <DeviceComponent
+                                    item={ item }
+                                />
+                            )}
+                        />
+                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>

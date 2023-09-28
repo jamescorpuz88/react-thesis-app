@@ -9,7 +9,8 @@ import common from '../common';
 import { FlatList } from 'react-native-gesture-handler';
 
 const HamburgerMenuComp = ({ item }) => {
-    console.log(item); // Should now log the item object correctly
+    console.log(item);
+
     return (
         <TouchableOpacity style={ styles.tabsBtn } horizontal>
             <Image

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontFamily: FONT.bold,
-        fontSize: SIZES.xlarge,
+        fontSize: SIZES.xLarge,
         color: COLORS.white,
         marginLeft: 10
     },
@@ -46,6 +46,32 @@ const styles = StyleSheet.create({
         fontSize: SIZES.large,
         color: COLORS.white,
         marginLeft: 10
+    },
+    deviceContainer: {
+        flexDirection: "row",
+    },
+    deviceIconContainer: {
+        backgroundColor: COLORS.grey,
+        borderRadius: SIZES.small / 1.25,
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    deviceViewContainer: {
+        backgroundColor: COLORS.grey,
+        borderRadius: SIZES.small / 1.25,
+        margin: 10
+    },
+    deviceButton: {
+        alignItems: "center"
+    },
+    deviceImage: {
+        margin: 5
+    },
+    deviceText: {
+        fontFamily: FONT.bold,
+        fontSize: SIZES.regular,
+        color: COLORS.white,
+        marginBottom: 10
     }
 })
 
