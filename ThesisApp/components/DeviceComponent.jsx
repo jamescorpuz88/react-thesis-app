@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 
-import styles from "../../assets/styles";
-import icons from "../../assets/icons";
+import styles from "../assets/styles";
+import icons from "../assets/icons";
 import { FlatList } from "react-native-gesture-handler";
 
 const DeviceComponent = ({ item }) => {

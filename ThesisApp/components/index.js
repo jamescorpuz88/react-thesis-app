@@ -1,10 +1,12 @@
 // Common Components
-import DeviceComponent from "./common/DeviceComponent";
-import HamburgerMenuBtn from "./common/HamburgerMenuBtn";
-import HamburgerMenuComp from "./common/HamburgerMenuComp";
+import DeviceComponent from "./DeviceComponent";
+import HamburgerMenuBtn from "./HamburgerMenuBtn";
+import HamburgerMenuComp from "./HamburgerMenuComp";
+import DevicesScreen from "./DevicesScreen";
 
 export {
     DeviceComponent,
+    DevicesScreen,
     HamburgerMenuBtn,
     HamburgerMenuComp
 }

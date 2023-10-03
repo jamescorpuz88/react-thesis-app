@@ -1,10 +1,10 @@
 import React from 'react'
 import { TouchableOpacity, Image } from 'react-native'
 
-import styles from '../../assets/styles'
-import { icons } from '../../constants'
+import styles from '../assets/styles'
+import { icons } from '../constants'
 
-import common from '../common'
+import common from './common'
 
 const HamburgerMenuBtn = ({ dimension, handlePress }) => {
     return (
