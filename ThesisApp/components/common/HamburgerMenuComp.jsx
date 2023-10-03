@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
-import { COLORS, SIZES, FONT } from '../assets/theme';
-import styles from '../assets/styles';
-import icons from '../assets/icons';
+import { COLORS, SIZES, FONT } from '../../assets/theme';
+import styles from '../../assets/styles';
+import icons from '../../assets/icons';
 
-import common from './common';
+import common from '../common';
 import { FlatList } from 'react-native-gesture-handler';
 
 const HamburgerMenuComp = ({ item }) => {
