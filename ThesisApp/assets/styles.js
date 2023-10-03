@@ -2,6 +2,46 @@ import { StyleSheet } from "react-native";
 import { COLORS , SIZES, FONT } from "./theme";
 
 const styles = StyleSheet.create({
+    // Navigation Menu
+    navProfile: {
+        height: 250,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: COLORS.darkgrey,
+        opacity: 1,
+    },
+
+    drawStyle: {
+        drawerStyle: {
+            backgroundColor: COLORS.darkgrey,
+            width: 300
+        },
+        headerStyle: {
+            backgroundColor: "#f4511e"
+        },
+        headerTintColor: "fff",
+        headerTitleStyle: {
+            fontWeight: 'bold'
+        },
+        drawerActiveTintColor: COLORS.white,
+        drawerLabelStyle: {
+            color: COLORS.white
+        }
+    },
+
+    // Common Items
+    commonContainer: {
+        flex: 1, 
+        padding: SIZES.medium,
+        backgroundColor: COLORS.darkgrey
+    },
+    commonView: {
+        flex: 1,
+        backgroundColor: COLORS.darkgrey
+    },
+
+    // Component
     btnContainer: {
         width: 40,
         height: 40,
@@ -75,4 +115,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default styles
+export default styles;

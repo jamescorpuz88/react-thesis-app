@@ -2,9 +2,11 @@ import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 
 import styles from "../../assets/styles";
 import icons from "../../assets/icons";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList } from "react-native";
 
 const DeviceComponent = ({ item }) => {
+    console.log(item)
+    console.log('DSIUBISDBVBUSDVDSBU@@@@@@@@@@@@@@@@22');
     let properties = Object.values(item.properties[0])
 
     return (

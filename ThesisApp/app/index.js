@@ -1,11 +1,12 @@
-import { useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { NavigationContainer } from '@react-navigation/native';
 import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 
+import styles from '../assets/styles';
 import { COLORS, SIZES } from '../assets/theme';
 import { SafeAreaView, View, Text } from 'react-native';
 
-import { Home, Devices } from '../components'
+import { Home, Devices, HamburgerMenuBtn } from '../components'
 
 const Drawer = createDrawerNavigator();
 
@@ -13,98 +14,36 @@ const App = () => {
     console.log('TEST');
 
     return (
-        // <SafeAreaView>
-        //     <NavigationContainer independent={true}>
-        //         <Drawer.Navigator
-        //             screenOptions={{
-        //                 drawerStyle: {
-        //                     backgroundColor: "#fff",
-        //                     width: 250
-        //                 },
-        //                 headerStyle: {
-        //                     backgroundColor: "#f4511e"
-        //                 },
-        //                 headerTintColor: "fff",
-        //                 headerTitleStyle: {
-        //                     fontWeight: 'bold'
-        //                 },
-        //                 drawerActiveTintColor: "blue",
-        //                 drawerLabelStyle: {
-        //                     color: "#111"
-        //                 }
-        //             }}
-        //         >
-        //             <Drawer.Screen 
-        //                 name="Home"
-        //                 options={{
-        //                     drawerLabel: "Home",
-        //                     title: "Home",
-        //                     // drawerIcon: () => (
-                                
-        //                     // )
-        //                 }}
-        //                 component={Home}
-        //             />
-        //         </Drawer.Navigator>
-        //     </NavigationContainer>
-        // </SafeAreaView>
-        //#region old Region
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.darkgrey }}>
+            <Stack.Screen options={{ headerShown: false }} />
             <NavigationContainer independent={true}>
                 <Drawer.Navigator
                     drawerContent={(props) => {
                         //#region drawerContent
                         return (
+                            // navProfile
                             <SafeAreaView>
-                                <View
-                                    style={{
-                                        height: 200,
-                                        width: '100%',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        backgroundColor: 'blue',
-                                        opacity: 1,
-                                    }}
-                                >
+                                <View style={ styles.navProfile } >
                                     <Text> TEST </Text>
                                 </View>
-                                <DrawerItemList {...props}/>
+                                <DrawerItemList {...props} />
                             </SafeAreaView>
                         )
                         //#endregion
                     }}
-                    screenOptions={{
-                        //#region screenOptions
-                        drawerStyle: {
-                            backgroundColor: "#fff",
-                            width: 250
-                        },
-                        headerStyle: {
-                            backgroundColor: "#f4511e"
-                        },
-                        headerTintColor: "fff",
-                        headerTitleStyle: {
-                            fontWeight: 'bold'
-                        },
-                        drawerActiveTintColor: "blue",
-                        drawerLabelStyle: {
-                            color: "#111"
-                        }
-                        //#endregion
-                    }}
+                    screenOptions={ styles.drawStyle }
                 >
                     <Drawer.Screen
                         name="FirstPage"
-                        options={{ drawerLabel: 'First page Option' }}
+                        options={{ drawerLabel: 'Home' }}
                         component={Home} />
                     <Drawer.Screen
                         name="SecondPage"
-                        options={{ drawerLabel: 'Second page Option' }}
+                        options={{ drawerLabel: 'Devices' }}
                         component={Devices} />
                 </Drawer.Navigator>
             </NavigationContainer>
         </SafeAreaView>
-        //endregion
     )
 }
 
