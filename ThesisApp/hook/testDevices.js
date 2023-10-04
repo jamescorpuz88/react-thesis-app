@@ -4,7 +4,7 @@ const testDevices = ({
         title: "Socket 1",
         icon: "microsoft",
         properties: [{
-            power: "Power",
+            power: "On",
             setTime: "Set Time",
             watts: "10W",
             temperature: "48C"
@@ -14,7 +14,7 @@ const testDevices = ({
         title: "Socket 2",
         icon: "microsoft",
         properties: [{
-            power: "Power",
+            power: "On",
             setTime: "Set Time",
             watts: "11W",
             temperature: "51C"
@@ -24,7 +24,7 @@ const testDevices = ({
         title: "Socket 2",
         icon: "microsoft",
         properties: [{
-            power: "Power",
+            power: "Off",
             setTime: "Set Time",
             watts: "12W",
             temperature: "54C"
@@ -34,7 +34,7 @@ const testDevices = ({
         title: "USB 1",
         icon: "apple",
         properties: [{
-            power: "Power",
+            power: "Off",
             setTime: "Set Time",
             watts: "13W",
             temperature: "57C"
@@ -44,7 +44,7 @@ const testDevices = ({
         title: "USB 2",
         icon: "apple",
         properties: [{
-            power: "Power",
+            power: "Off",
             setTime: "Set Time",
             watts: "14W",
             temperature: "60C"
@@ -54,7 +54,7 @@ const testDevices = ({
         title: "USB 3",
         icon: "apple",
         properties: [{
-            power: "Power",
+            power: "Off",
             setTime: "Set Time",
             watts: "15W",
             temperature: "63C"
