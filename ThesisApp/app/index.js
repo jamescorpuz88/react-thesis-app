@@ -1,44 +1,50 @@
-import { useState } from 'react';
-import { View, ScrollView, SafeAreaView } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+import { NavigationContainer } from '@react-navigation/native';
+import { DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 
-import { COLORS, icons, images, SIZES } from '../constants';
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from '../components';
+import styles from '../assets/styles';
+import { COLORS, SIZES } from '../assets/theme';
+import { SafeAreaView, View, Text } from 'react-native';
 
-const  Home = () => {
-    const router = useRouter();
+import { Home, Devices, HamburgerMenuBtn } from '../components'
 
-    return (    // SafeAreaView : Show content safely without notches, homebutton appearing
-        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>          
-            <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: COLORS.lightWhite },
-                    headerShadowVisible: true,
-                    headerLeft: () => (
-                        <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
-                    ),
-                    headerRight: () => (
-                        <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
-                    ),
-                    headerTitle: "TST"
-                }}
-            />
+const Drawer = createDrawerNavigator();
 
-            <ScrollView showsVerticalScrollIndicator = {false}>
-                <View
-                    style={{
-                        flex: 1,
-                        padding: SIZES.medium
-                    }}>
-                        <Welcome
-                        
-                        />
-                        <Popularjobs/>
-                        <Nearbyjobs/>
-                </View>
-            </ScrollView>
+const App = () => {
+    console.log('TEST');
+
+    return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.darkgrey }}>
+            <Stack.Screen options={{ headerShown: false }} />
+            <NavigationContainer independent={true}>
+                <Drawer.Navigator
+                    drawerContent={(props) => {
+                        //#region drawerContent
+                        return (
+                            // navProfile
+                            <SafeAreaView>
+                                <View style={ styles.navProfile } >
+                                    <Text> TEST </Text>
+                                </View>
+                                <DrawerItemList {...props} />
+                            </SafeAreaView>
+                        )
+                        //#endregion
+                    }}
+                    screenOptions={ styles.drawStyle }
+                >
+                    <Drawer.Screen
+                        name="FirstPage"
+                        options={{ drawerLabel: 'Home' }}
+                        component={Home} />
+                    <Drawer.Screen
+                        name="SecondPage"
+                        options={{ drawerLabel: 'Devices' }}
+                        component={Devices} />
+                </Drawer.Navigator>
+            </NavigationContainer>
         </SafeAreaView>
     )
 }
 
-export default Home;
+export default App;
