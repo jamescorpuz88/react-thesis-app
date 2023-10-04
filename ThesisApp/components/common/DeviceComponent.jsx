@@ -5,8 +5,6 @@ import icons from "../../assets/icons";
 import { FlatList } from "react-native";
 
 const DeviceComponent = ({ item }) => {
-    console.log(item)
-    console.log('DSIUBISDBVBUSDVDSBU@@@@@@@@@@@@@@@@22');
     let properties = Object.values(item.properties[0])
 
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, View, Text, SafeAreaView } from "react-native";
+import { FlatList, View, Text, SafeAreaView, ScrollView } from "react-native";
 
 import styles from "../assets/styles";
 
@@ -13,7 +13,7 @@ const Devices = () => {
 
     return (
         <SafeAreaView style={ styles.commonView }>
-            <View style={ styles.commonContainer }>
+            <ScrollView style={ styles.commonContainer }>
                 <Text style={ styles.headerText }> My Devices </Text>
                 <FlatList 
                     data={testDevice}
@@ -21,7 +21,7 @@ const Devices = () => {
                         <DeviceComponent item={ item } />
                     )}
                 />
-            </View>
+            </ScrollView>
         </SafeAreaView>
     )
 }

@@ -93,13 +93,14 @@ const styles = StyleSheet.create({
     deviceIconContainer: {
         backgroundColor: COLORS.grey,
         borderRadius: SIZES.small / 1.25,
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: 5,
+        marginBottom: 5,
     },
     deviceViewContainer: {
         backgroundColor: COLORS.grey,
         borderRadius: SIZES.small / 1.25,
-        margin: 10
+        marginLeft: 10,
+        margin: 5
     },
     deviceButton: {
         alignItems: "center"
