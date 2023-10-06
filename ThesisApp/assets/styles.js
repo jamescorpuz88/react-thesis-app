@@ -132,11 +132,20 @@ const styles = StyleSheet.create({
         marginRight: 20,
         alignItems: "center",
     },
-
     contentCompImage: {
         margin: 20,
         width: 150,
         height: 150
+    },
+
+    // Modal Comp
+    commonModal: {
+        backgroundColor: COLORS.darkgrey,
+        borderRadius: radius,
+        elevation: 5
+    },
+    commonModalContainer: {
+        margin: 10
     }
 })
 

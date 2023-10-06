@@ -12,11 +12,12 @@ import ConnectedComp from "./common/ConnectedComp";
 import TimeSetModal from "./common/TimeSetModal";
 
 const Home = () => {
-    const [timeModalVisible, setTimeModalVisible] = useState(false);
     const [connected, setConnected] = useState()
-
     const navMenuItems = common.navMenuItems;
 
+    const isTimeModal = false;
+
+    const [timeModalVisible, setTimeModalVisible] = useState(false);
     const handleTimeModal = () => {
         setTimeModalVisible(!timeModalVisible);
     }
@@ -34,21 +35,21 @@ const Home = () => {
                 />
             </ScrollView>
 
+            {/* <Button title='Show Modal' onPress={handleTimeModal}/> */}
             <Button
                 title="SHOW MODAL"
                 onPress={() => handleTimeModal()}
             />
             <Modal
-                animationType="slide" transparent={true}
+                animationType="slide"
+                transparent={true}
                 visible={timeModalVisible}
                 onRequestClose={() => { handleTimeModal() }}
                 onBackdropPress={() => { handleTimeModal() }}
             >
-                <View style={{ backgroundColor: "#FFF"}}>
-                    <TimeSetModal/>
-                    <Pressable onPress={() => handleTimeModal()}>
-                        <Text>Hide Modal</Text>
-                    </Pressable>
+                <View style={ styles.commonModal }>
+                    <Button title="Hide Modal" onPress={() => handleTimeModal()} />
+                    <TimeSetModal/> 
                 </View>
             </Modal>
         </SafeAreaView>
