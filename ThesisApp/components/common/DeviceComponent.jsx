@@ -21,7 +21,7 @@ const DeviceComponent = ({ item }) => {
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <ScrollView style={ styles.deviceViewContainer } horizontal>
+                <ScrollView style={ styles.deviceViewContainer } showsVerticalScrollIndicator={false} horizontal>
                     <FlatList
                         data={properties}
                         renderItem={({ item }) => {
