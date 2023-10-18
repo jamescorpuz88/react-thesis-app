@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity, Image } from 'react-native'
 
 import styles from '../../assets/styles'
-import { icons } from '../../constants'
+import icons from '../../assets/icons'
 
 import common from '../common'
 

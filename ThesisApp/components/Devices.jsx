@@ -7,16 +7,14 @@ import DeviceComponent from "./common/DeviceComponent";
 import testDevices from '../hook/testDevices';
 
 const Devices = () => {
-    const testDevice = testDevices.devices;
-
-    console.log(testDevice)
+    const device = testDevices.devices;
 
     return (
         <SafeAreaView style={ styles.commonView }>
             <ScrollView style={ styles.commonContainer }>
-                <Text style={ styles.headerText }> My Devices </Text>
+                <Text style={ styles.headerText }> Devices </Text>
                 <FlatList 
-                    data={testDevice}
+                    data={ device }
                     renderItem={({ item }) => (
                         <DeviceComponent item={ item } />
                     )}

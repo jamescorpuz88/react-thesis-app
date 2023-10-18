@@ -6,15 +6,13 @@ import styles from '../assets/styles';
 import { COLORS, SIZES } from '../assets/theme';
 import { SafeAreaView, View, Text } from 'react-native';
 
-import { Home, Devices, HamburgerMenuBtn } from '../components'
+import { Home, Devices } from '../components'
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
-    console.log('TEST');
-
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.darkgrey }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.black }}>
             <Stack.Screen options={{ headerShown: false }} />
             <NavigationContainer independent={true}>
                 <Drawer.Navigator
@@ -34,11 +32,11 @@ const App = () => {
                     screenOptions={ styles.drawStyle }
                 >
                     <Drawer.Screen
-                        name="FirstPage"
+                        name="Home"
                         options={{ drawerLabel: 'Home' }}
                         component={Home} />
                     <Drawer.Screen
-                        name="SecondPage"
+                        name="Devices"
                         options={{ drawerLabel: 'Devices' }}
                         component={Devices} />
                 </Drawer.Navigator>

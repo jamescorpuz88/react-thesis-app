@@ -1,51 +1,58 @@
+import { Dimensions } from "react-native";
 import { StyleSheet } from "react-native";
 import { COLORS , SIZES, FONT } from "./theme";
+
+const radius = SIZES.small / 2.5;
 
 const styles = StyleSheet.create({
     // Navigation Menu
     navProfile: {
-        height: 250,
         width: '100%',
+        height: 250,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: COLORS.darkgrey,
         opacity: 1,
     },
-
     drawStyle: {
-        drawerStyle: {
-            backgroundColor: COLORS.darkgrey,
-            width: 300
-        },
-        headerStyle: {
-            backgroundColor: "#f4511e"
-        },
+        drawerStyle: { backgroundColor: COLORS.darkgrey, width: 300 },
+        headerStyle: { backgroundColor: COLORS.black, height: 75 },
         headerTintColor: "fff",
-        headerTitleStyle: {
-            fontWeight: 'bold'
-        },
-        drawerActiveTintColor: COLORS.white,
-        drawerLabelStyle: {
-            color: COLORS.white
-        }
+        headerTitleStyle: { fontWeight: 'bold', color: COLORS.white },
+        drawerActiveTintColor: COLORS.white, drawerLabelStyle: { color: COLORS.white }
     },
 
     // Common Items
     commonContainer: {
         flex: 1, 
         padding: SIZES.medium,
-        backgroundColor: COLORS.darkgrey
+        backgroundColor: COLORS.black
     },
     commonView: {
         flex: 1,
-        backgroundColor: COLORS.darkgrey
+        backgroundColor: COLORS.black
+    },
+    commonStatus: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    commonStatusIcon: (status) => ({
+        fontFamily: FONT.bold,
+        fontSize: SIZES.medium,
+        color: status,
+    }),
+    commonStatusText: {
+        fontFamily: FONT.bold,
+        fontSize: SIZES.regular,
+        color: COLORS.white,
+        marginLeft: 5
     },
 
     // Component
     btnContainer: {
         width: 40,
         height: 40,
-        borderRadius: SIZES.small / 1.25,
+        borderRadius: radius,
         justifyContent: "center",
         alignItems: "center",
         marginLeft: 10
@@ -53,18 +60,18 @@ const styles = StyleSheet.create({
     btnImg: (dimension) => ({
         width: dimension,
         height: dimension,
-        borderRadius: SIZES.small / 1.25,
+        borderRadius: radius,
     }),
     tabsContainer: {
         width: "100%",
         marginTop: SIZES.medium,
-        borderRadius: SIZES.small / 1.25,
+        borderRadius: radius,
     },
     tabsBtn: {
         width: "99%",
         margin: 5,
-        borderRadius: SIZES.small / 1.25,
-        backgroundColor: COLORS.grey,
+        borderRadius: radius,
+        backgroundColor: COLORS.darkgrey,
         flexDirection: "row"
     },
     tabsBtnView: {
@@ -91,14 +98,14 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     deviceIconContainer: {
-        backgroundColor: COLORS.grey,
-        borderRadius: SIZES.small / 1.25,
+        backgroundColor: COLORS.darkgrey,
+        borderRadius: radius,
         marginTop: 5,
         marginBottom: 5,
     },
     deviceViewContainer: {
-        backgroundColor: COLORS.grey,
-        borderRadius: SIZES.small / 1.25,
+        backgroundColor: COLORS.darkgrey,
+        borderRadius: radius,
         marginLeft: 10,
         margin: 5
     },
@@ -106,13 +113,39 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     deviceImage: {
-        margin: 5
+        margin: 5,
+        width: 60,
+        height: 60
     },
     deviceText: {
         fontFamily: FONT.bold,
         fontSize: SIZES.regular,
         color: COLORS.white,
         marginBottom: 10
+    },
+
+    // Content Comp
+    contentCompView: {
+        backgroundColor: COLORS.black,
+        borderRadius: radius,
+        marginLeft: 20,
+        marginRight: 20,
+        alignItems: "center",
+    },
+    contentCompImage: {
+        margin: 20,
+        width: 150,
+        height: 150
+    },
+
+    // Modal Comp
+    commonModal: {
+        backgroundColor: COLORS.darkgrey,
+        borderRadius: radius,
+        elevation: 5
+    },
+    commonModalContainer: {
+        margin: 10
     }
 })
 

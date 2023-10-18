@@ -10,7 +10,9 @@ const COLORS = {
     lightWhite: "#FAFAFC",
     
     darkgrey: "#141414",
-    grey: "#282828"
+    grey: "#282828",
+
+    black: "#000"
 };
   
 const FONT = {

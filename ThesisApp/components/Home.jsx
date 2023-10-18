@@ -1,31 +1,57 @@
 import { useState } from "react";
-import { FlatList, Button, Text, SafeAreaView, ScrollView } from "react-native";
+import { View, FlatList, Pressable, Text, SafeAreaView, ScrollView, Button } from "react-native";
+import Modal from "react-native-modal";
 
 import styles from "../assets/styles";
-import { COLORS } from "../assets/theme";
 
 import common from '../components/common';
 
+import ContentComp from "./common/ContentComp";
 import HamburgerMenuComp from "./common/HamburgerMenuComp";
-import BottomDrawer from "./common/BottomDrawer";
+import ConnectedComp from "./common/ConnectedComp";
+import TimeSetModal from "./common/TimeSetModal";
 
 const Home = () => {
-    const [show, setShow] = useState(true)
+    const [connected, setConnected] = useState()
     const navMenuItems = common.navMenuItems;
+
+    const isTimeModal = false;
+
+    const [timeModalVisible, setTimeModalVisible] = useState(false);
+    const handleTimeModal = () => {
+        setTimeModalVisible(!timeModalVisible);
+    }
 
     return (
         <SafeAreaView style={ styles.commonView }>
-            <Button onPress={() => setShow(true)} title="Show Bottom Drawer">
-            <BottomDrawer/>
-            </Button>
+            <ConnectedComp status={ "Disconnected" }/>
+            <ContentComp contentImage={ "powerplant" }/>
             <ScrollView style={ styles.commonContainer }>
                 <FlatList
                     data={navMenuItems}
                     renderItem={({ item }) => (
-                        <HamburgerMenuComp item={ item } />
+                        <HamburgerMenuComp item={ item }/>
                     )}
                 />
             </ScrollView>
+
+            {/* <Button title='Show Modal' onPress={handleTimeModal}/> */}
+            <Button
+                title="SHOW MODAL"
+                onPress={() => handleTimeModal()}
+            />
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={timeModalVisible}
+                onRequestClose={() => { handleTimeModal() }}
+                onBackdropPress={() => { handleTimeModal() }}
+            >
+                <View style={ styles.commonModal }>
+                    <Button title="Hide Modal" onPress={() => handleTimeModal()} />
+                    <TimeSetModal/> 
+                </View>
+            </Modal>
         </SafeAreaView>
     )
 }
