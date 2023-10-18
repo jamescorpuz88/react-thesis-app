@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, FlatList, Pressable, Text, SafeAreaView, ScrollView, Button } from "react-native";
+import { View, FlatList, TouchableOpacity, Text, SafeAreaView, ScrollView, Button } from "react-native";
 import Modal from "react-native-modal";
 
 import styles from "../assets/styles";
@@ -15,15 +15,28 @@ const Home = () => {
     const [connected, setConnected] = useState('Connected')
     const navMenuItems = common.navMenuItems;
 
-    const [modalVisible, setModalVisible] = useState(false);
+    const [isModalVisible, setModalVisible] = useState(false);
     const handleTimeModal = () => {
-        setModalVisible(!modalVisible);
+        setModalVisible(!isModalVisible);
+    }
+
+    const handleConnect = () => {
+        connected == 'Connected' ? setConnected('Disconncted') : setConnected('Connected')
     }
 
     return (
         <SafeAreaView style={ styles.commonView }>
             <ConnectedComp status={ connected }/>
             <ContentComp contentImage={ "powerplant" }/>
+
+            <TouchableOpacity style={ styles.tabsBtn } onPress={ handleConnect }>
+                <View style={ styles.tabsBtnView }>
+                    <Text style={ styles.headerText } >
+                        'Dis/connect'
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            
             <ScrollView style={ styles.commonContainer }>
                 <FlatList
                     data={navMenuItems}
@@ -33,21 +46,18 @@ const Home = () => {
                 />
             </ScrollView>
 
-            {/* <Button title='Show Modal' onPress={handleTimeModal}/> */}
             <Button title="SHOW MODAL" onPress={() => handleTimeModal()} />
             <Modal
                 animationType="slide"
                 transparent={true}
-                visible={modalVisible}
+                visible={isModalVisible}
                 onRequestClose={() => { handleTimeModal() }}
                 onBackdropPress={() => { handleTimeModal() }}
             >
-                {{ if(modalVisible) {
-                    <View style={ styles.commonModal }>
-                        <Button title="Hide Modal" onPress={() => handleTimeModal()} />
-                        <TimeSetModal/> 
-                    </View>
-                }}}
+                <View style={ styles.commonModal }>
+                    <Button title="Hide Modal" onPress={() => handleTimeModal()} />
+                    { isModalVisible ? <TimeSetModal/> : 'Test' }
+                </View>
             </Modal>
         </SafeAreaView>
     )
