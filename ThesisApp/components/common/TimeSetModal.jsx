@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Button, View, Text } from "react-native";
+import { View, Text } from "react-native";
 
 import styles from "../../assets/styles";
 
 const TimeSetModal = () => {
+    console.log('Time Set Modal');
 
     return (
         <View style={ styles.commonModalContainer }>
