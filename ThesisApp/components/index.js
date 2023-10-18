@@ -8,6 +8,7 @@ import HamburgerMenuComp from "./common/HamburgerMenuComp";
 // Screens
 import Devices from "./Devices";
 import Home from "./Home";
+import History from "./History";
 
 // Modals
 import TimeSetModal from "./common/TimeSetModal";
@@ -21,8 +22,9 @@ export {
     HamburgerMenuComp,
 
     // Screens
-    Devices,
     Home,
+    Devices,
+    History,
 
     // Modals
     TimeSetModal,

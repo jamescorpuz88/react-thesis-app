@@ -12,19 +12,17 @@ import ConnectedComp from "./common/ConnectedComp";
 import TimeSetModal from "./common/TimeSetModal";
 
 const Home = () => {
-    const [connected, setConnected] = useState()
+    const [connected, setConnected] = useState('Connected')
     const navMenuItems = common.navMenuItems;
 
-    const isTimeModal = false;
-
-    const [timeModalVisible, setTimeModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     const handleTimeModal = () => {
-        setTimeModalVisible(!timeModalVisible);
+        setModalVisible(!modalVisible);
     }
 
     return (
         <SafeAreaView style={ styles.commonView }>
-            <ConnectedComp status={ "Disconnected" }/>
+            <ConnectedComp status={ connected }/>
             <ContentComp contentImage={ "powerplant" }/>
             <ScrollView style={ styles.commonContainer }>
                 <FlatList
@@ -36,21 +34,20 @@ const Home = () => {
             </ScrollView>
 
             {/* <Button title='Show Modal' onPress={handleTimeModal}/> */}
-            <Button
-                title="SHOW MODAL"
-                onPress={() => handleTimeModal()}
-            />
+            <Button title="SHOW MODAL" onPress={() => handleTimeModal()} />
             <Modal
                 animationType="slide"
                 transparent={true}
-                visible={timeModalVisible}
+                visible={modalVisible}
                 onRequestClose={() => { handleTimeModal() }}
                 onBackdropPress={() => { handleTimeModal() }}
             >
-                <View style={ styles.commonModal }>
-                    <Button title="Hide Modal" onPress={() => handleTimeModal()} />
-                    <TimeSetModal/> 
-                </View>
+                {{ if(modalVisible) {
+                    <View style={ styles.commonModal }>
+                        <Button title="Hide Modal" onPress={() => handleTimeModal()} />
+                        <TimeSetModal/> 
+                    </View>
+                }}}
             </Modal>
         </SafeAreaView>
     )

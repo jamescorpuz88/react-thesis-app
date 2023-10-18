@@ -6,7 +6,7 @@ import styles from '../assets/styles';
 import { COLORS, SIZES } from '../assets/theme';
 import { SafeAreaView, View, Text } from 'react-native';
 
-import { Home, Devices } from '../components'
+import { Home, Devices, History } from '../components'
 
 const Drawer = createDrawerNavigator();
 
@@ -39,6 +39,10 @@ const App = () => {
                         name="Devices"
                         options={{ drawerLabel: 'Devices' }}
                         component={Devices} />
+                    <Drawer.Screen
+                        name="History"
+                        options={{ drawerLabel: 'History' }}
+                        component={History} />
                 </Drawer.Navigator>
             </NavigationContainer>
         </SafeAreaView>
