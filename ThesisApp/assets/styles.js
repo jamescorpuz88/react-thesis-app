@@ -139,10 +139,26 @@ const styles = StyleSheet.create({
     },
 
     // Modal Comp
+    commonModalOverlay: {
+        position: "absolute",
+        width: '100%',
+        height: '100%',
+    },
     commonModal: {
+        width: '90%',
+        height: 250,
+
+        alignSelf: 'center',
+        marginTop: 'auto',
+
         backgroundColor: COLORS.darkgrey,
         borderRadius: radius,
         elevation: 5
+    },
+    commonModalHeader: {
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        margin: 10,
     },
     commonModalContainer: {
         margin: 10

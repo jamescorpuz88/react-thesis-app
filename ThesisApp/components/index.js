@@ -11,7 +11,9 @@ import Home from "./Home";
 import History from "./History";
 
 // Modals
-import TimeSetModal from "./common/TimeSetModal";
+import ModalController from "./common/ModalController";
+import ModalTimeSet from "./common/ModalTimeSet";
+import ModalPower from "./common/ModalPower";
 
 export {
     // Components
@@ -27,5 +29,7 @@ export {
     History,
 
     // Modals
-    TimeSetModal,
+    ModalController,
+    ModalTimeSet,
+    ModalPower
 }

@@ -1,17 +1,15 @@
 import React from "react";
-import { useState } from "react";
 import { View, Text } from "react-native";
 
 import styles from "../../assets/styles";
 
-const TimeSetModal = () => {
-    console.log('Time Set Modal');
+const ModalPower = () => {
 
     return (
         <View style={ styles.commonModalContainer }>
-            <Text style={ styles.bodyText }> TEST MODAL </Text>
+            <Text style={ styles.bodyText }> POWER MODAL </Text>
         </View>
     )
 }
 
-export default TimeSetModal;
+export default ModalPower;  

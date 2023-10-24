@@ -7,21 +7,16 @@ import styles from "../assets/styles";
 import common from '../components/common';
 
 import ContentComp from "./common/ContentComp";
-import HamburgerMenuComp from "./common/HamburgerMenuComp";
 import ConnectedComp from "./common/ConnectedComp";
-import TimeSetModal from "./common/TimeSetModal";
+import HamburgerMenuComp from "./common/HamburgerMenuComp";
+import useFetch from "../hook/useFetch";
 
 const Home = () => {
     const [connected, setConnected] = useState('Connected')
     const navMenuItems = common.navMenuItems;
 
-    const [isModalVisible, setModalVisible] = useState(false);
-    const handleTimeModal = () => {
-        setModalVisible(!isModalVisible);
-    }
-
     const handleConnect = () => {
-        connected == 'Connected' ? setConnected('Disconncted') : setConnected('Connected')
+        connected == 'Connected' ? setConnected('Disconnected') : setConnected('Connected')
     }
 
     return (
@@ -45,20 +40,6 @@ const Home = () => {
                     )}
                 />
             </ScrollView>
-
-            <Button title="SHOW MODAL" onPress={() => handleTimeModal()} />
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={isModalVisible}
-                onRequestClose={() => { handleTimeModal() }}
-                onBackdropPress={() => { handleTimeModal() }}
-            >
-                <View style={ styles.commonModal }>
-                    <Button title="Hide Modal" onPress={() => handleTimeModal()} />
-                    { isModalVisible ? <TimeSetModal/> : 'Test' }
-                </View>
-            </Modal>
         </SafeAreaView>
     )
 }
